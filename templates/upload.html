@@ -1,0 +1,100 @@
+{% extends 'index.html' %}
+
+{% block body %}
+
+<div class="container" id="myrow">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" id="uploadimg" href="#upload-image">Predict Species</a>
+        </li>
+      </ul>
+
+      <!-- tab panes -->
+      <div class="tab-content">
+          <div class="tab-pane active" id="upload-image" role="tabpanel" aria-labelledby="uploadimg">
+              <div class="row">
+                  <div class="col">
+                      <form action="#" method="POST" enctype="multipart/form-data">
+                        <!-- file input -->
+                        <p>
+                            <label for="weight">Weight of fish in Gram g:</label>
+                            <input type="number" name="Weight"  step="any" style="background-color: #2471A3; color:azure" required>
+                        </p>
+                        <p>
+                            <label for="vlength">Vertical length in cm</label>
+                            <input type="number" name="vlength"   step="any" style="background-color: #2471A3; color:azure" required>
+                        </p>
+                        <p>
+                            <label for="dlength">Diagonal length in cm</label>
+                            <input type="number" name="dlength"  step="any" style="background-color: #2471A3; color:azure" required>
+                        </p>
+                        <p>
+                            <label for="clength">Cross length in cm</label>
+                            <input type="number" name="clength"  step="any" style="background-color: #2471A3; color:azure" required>
+                        </p>
+                        <p>
+                            <label for="height">Height in cm</label>
+                            <input type="number" name="height"  step="any" style="background-color: #2471A3; color:azure" required>
+                        </p>
+                        <p>
+                            <label for="width">Diagonal width in cm</label>
+                            <input type="number" name="width"  step="any" style="background-color: #2471A3; color:azure" required>
+                        </p>
+                        
+                        <!-- Submit button -->
+                        <p>
+                            <input type="submit" value="submit" class="btn" style="background-color: #2471A3; color:azure">
+                        </p>
+
+                                            
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+</div>
+<br><br>
+{% if success %}
+
+<div class="container" id='myrow_result'>
+    <div class="row">
+        <div class="col col-8">
+            <table>
+                <tr>
+                    <th>Label</th> 
+                </tr>
+                 
+                    <tr>
+                        <td>{{ result_msg }}</td> 
+                    </tr>
+                 
+            </table>
+        </div>
+       
+    </div>
+</div>
+
+{% endif %}
+
+
+<style>
+    #myrow{
+        background-color:#EBEDEF;
+    }
+    #myrow_result{
+        background-color:#EBEDEF;
+        padding: 5%;
+        align-content: center;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    table, th, td{
+        border: 1px solid black;
+    }
+</style>
+
+
+
+{% endblock  %}
